@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <!-- <item android:title="Add Courses"android:id="@+id/addcourses"android:icon="@drawable/ic_add_circle_black_24dp"/>-->
+
+        <item android:title="Home"
+            android:icon="@mipmap/home"
+            android:id="@+id/home"/>
+
+        <item android:title="Courses"
+            android:icon="@mipmap/course"
+            android:id="@+id/courses"/>
+
+        <item android:title="View Subject"
+            android:icon="@mipmap/subjectadd"
+            android:id="@+id/viewSubject"/>
+
+        <item android:title="View Student"
+            android:icon="@mipmap/viewstudent"
+            android:id="@+id/viewstudent"/>
+
+        <item android:title="Take Attendance"
+            android:icon="@mipmap/takeattendance"
+            android:id="@+id/takeattendance"/>
+
+        <item android:title="View Attendance"
+            android:icon="@mipmap/takeatt"
+            android:id="@+id/viewattendance"/>
+
+
+        <item android:title="Logout"
+            android:icon="@mipmap/logout"
+            android:id="@+id/logout"/>
+
+    </group>
+</menu>

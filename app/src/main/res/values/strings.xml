@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">My Project</string>
+    <string name="open_navigation_drawer">open navigation drawer</string>
+    <string name="close_navigation_drawer">close navigation drawer</string>
+
+    <array name="userrole">
+        <item>Admin</item>
+        <item>Student</item>
+    </array>
+
+    <array name="deparment">
+        <item>BIT</item>
+    </array>
+    <array name="year">
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+    </array>
+</resources>

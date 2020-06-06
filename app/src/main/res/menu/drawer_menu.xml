@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+    <!-- <item android:title="Add Courses"android:id="@+id/addcourses"android:icon="@drawable/ic_add_circle_black_24dp"/>-->
+
+        <item android:title="Home"
+           android:icon="@drawable/ic_home_black_24dp"
+            android:id="@+id/home"/>
+
+    <item android:title="Courses"
+      android:icon="@drawable/ic_courses_black_24dp"
+         android:id="@+id/courses"/>
+
+    <item android:title="Add Subject"
+        android:icon="@drawable/subjectadd"
+        android:id="@+id/addSubject"/>
+
+        <item android:title="Add Student"
+           android:icon="@drawable/ic_student_add_black_24dp"
+            android:id="@+id/addstudent"/>
+
+    <item android:title="View Student"
+       android:icon="@drawable/ic_studentview_black_24dp"
+        android:id="@+id/viewstudent"/>
+
+    <item android:title="Take Attendance"
+       android:icon="@drawable/ic_takeattd_turned_in_black_24dp"
+        android:id="@+id/takeattendance"/>
+
+        <item android:title="View Attendance"
+            android:icon="@drawable/ic_viewattd_ind_black_24dp"
+            android:id="@+id/viewattendance"/>
+
+    <item android:title="Attendance Per Student"
+      android:icon="@drawable/ic_total_black_24dp"
+        android:id="@+id/attendanceperstudent"/>
+
+    <item android:title="Student Registration"
+     android:icon="@drawable/ic_studentregister_black_24dp"
+        android:id="@+id/studentregistration"/>
+
+    <item android:title="Registered Student"
+    android:icon="@drawable/ic_registers_black_24dp"
+        android:id="@+id/viewregisteredstudent"/>
+
+    <item android:title="Logout"
+       android:icon="@drawable/ic_logs_new_black_24dp"
+        android:id="@+id/logout"/>
+
+</group>
+</menu>

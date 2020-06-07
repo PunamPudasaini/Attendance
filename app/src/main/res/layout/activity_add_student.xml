@@ -93,7 +93,6 @@
             android:textSize="15sp"
             />
         <Spinner
-            android:entries="@array/deparment"
             android:id="@+id/spinnerdept"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -103,13 +102,12 @@
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Class"
+            android:text="Select Semester"
             android:textColor="#000"
             android:textSize="15sp"
             />
         <Spinner
-            android:entries="@array/year"
-            android:id="@+id/spinneryear"
+            android:id="@+id/spinnersemester"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"

@@ -1,7 +1,6 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,12 +20,12 @@ import com.example.myproject.R;
 
 public class AddStudent extends AppCompatActivity {
     EditText firstname,lastname,contact,address;
-    Spinner department,Class;
+    Spinner department,Semester;
     Button submitbtn;
 
-    String branch,year;
-    private String[] branchString = new String[] { "BIT"};
-    private String[] yearString = new String[] {"1st","2nd","3rd"};
+   public String branch,semester;
+    private String[] branchString = new String[] { "BIT","BCS"};
+    private String[] semesterString = new String[] {"1st","2nd","3rd","4th","5th","6th"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +36,7 @@ public class AddStudent extends AppCompatActivity {
         contact = findViewById(R.id.editTextPhone);
         address = findViewById(R.id.editTextaddr);
         department = findViewById(R.id.spinnerdept);
-        Class = findViewById(R.id.spinneryear);
+        Semester = findViewById(R.id.spinnersemester);
         submitbtn = findViewById(R.id.RegisterButton);
 
 
@@ -46,7 +45,6 @@ public class AddStudent extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                branch = department.getSelectedItem().toString();
                 Toast.makeText(AddStudent.this, "Selected Item "+branch, Toast.LENGTH_SHORT).show();
             }
 
@@ -60,27 +58,27 @@ public class AddStudent extends AppCompatActivity {
         adapter_branch
                 .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         department.setAdapter(adapter_branch);
+
+
+
         //spinner 2
 
-        Class.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                year =Class.getSelectedItem().toString();
+       Semester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+               Toast.makeText(AddStudent.this, "Selected Item "+semester, Toast.LENGTH_SHORT).show();
+           }
 
-                Toast.makeText(AddStudent.this, "Selected Item "+year, Toast.LENGTH_SHORT).show();
-            }
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+           }
+       });
 
-            }
-        });
-        ArrayAdapter<String> adapter_year = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, yearString);
-        adapter_branch
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Class.setAdapter(adapter_year);
+       ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,semesterString);
+       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       Semester.setAdapter(adapter);
 
         submitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,15 +86,15 @@ public class AddStudent extends AppCompatActivity {
                 AddStudent();
             }
         });
+    }
 
-}
     public void AddStudent(){
             String FirstName = firstname.getText().toString();
             String LastName = lastname.getText().toString();
             String Contact = contact.getText().toString();
             String Address = address.getText().toString();
-            String branch = department.getSelectedItem().toString();
-            String year = Class.getSelectedItem().toString();
+            branch = department.getSelectedItem().toString();
+            semester = Semester.getSelectedItem().toString();
 
             if (TextUtils.isEmpty(FirstName)) {
                 firstname.setError("please enter firstname");
@@ -108,7 +106,6 @@ public class AddStudent extends AppCompatActivity {
             else if (TextUtils.isEmpty(Contact)) {
                 contact.setError("please enter phoneno");
             }
-
             else if (TextUtils.isEmpty(Address)) {
                 address.setError("enter address");
             }
@@ -119,8 +116,7 @@ public class AddStudent extends AppCompatActivity {
                 student.setStudent_mobilenumber(Contact);
                 student.setStudent_address(Address);
                 student.setStudent_department(branch);
-                student.setStudent_class(year);
-
+                student.setStudent_semester(semester);
                 DatabaseHelper databaseHelper = new DatabaseHelper(AddStudent.this);
                 databaseHelper.StudentAdd(student);
                 startActivity(new Intent(AddStudent.this, HomeActivity.class));

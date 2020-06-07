@@ -43,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_STUDENT_MO_NO = "student_mobilenumber";
     private static final String KEY_STUDENT_ADDRESS = "student_address";
     private static final String KEY_STUDENT_DEPARTMENT = "student_department";
-    private static final String KEY_STUDENT_CLASS = "student_class";
+    private static final String KEY_STUDENT_SEMESTER = "student_semester";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_STUDENT_MO_NO + " TEXT, " +
                 KEY_STUDENT_ADDRESS + " TEXT," +
                 KEY_STUDENT_DEPARTMENT + " TEXT," +
-                KEY_STUDENT_CLASS + " TEXT " + ")";
+                KEY_STUDENT_SEMESTER + " TEXT " + ")";
         Log.d("queryStudent", queryStudent);
         try {
             db.execSQL(queryRegistered);
@@ -101,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_STUDENT_MO_NO + " TEXT, " +
                 KEY_STUDENT_ADDRESS + " TEXT," +
                 KEY_STUDENT_DEPARTMENT + " TEXT," +
-                KEY_STUDENT_CLASS + " TEXT " + ")";
+                KEY_STUDENT_SEMESTER + " TEXT " + ")";
         Log.d("queryStudent", queryStudent);
 
         try {
@@ -189,13 +189,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    public void StudentAdd(Student student) {
        SQLiteDatabase db = this.getWritableDatabase();
 
-       String query = "INSERT INTO student_table (student_firstname,student_lastname,student_mobilenumber,student_address,student_department,student_class) values ('"+
+       String query = "INSERT INTO student_table (student_firstname,student_lastname,student_mobilenumber,student_address,student_department,student_semester) values ('"+
                student.getStudent_firstname()+"', '"+
                student.getStudent_lastname()+"','"+
                student.getStudent_mobilenumber()+"', '"+
                student.getStudent_address()+"', '"+
                student.getStudent_department()+"', '"+
-               student.getStudent_class()+"')";
+               student.getStudent_semester()+"')";
 
        Log.d("query", query);
        db.execSQL(query);
@@ -221,7 +221,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 student.setStudent_mobilenumber(cursor.getString(3));
                 student.setStudent_address(cursor.getString(4));
                 student.setStudent_department(cursor.getString(5));
-                student.setStudent_class(cursor.getString(6));
+                student.setStudent_semester(cursor.getString(6));
                 list.add(student);
             }while(cursor.moveToNext());
         }
@@ -246,7 +246,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 student.setStudent_mobilenumber(cursor.getString(3));
                 student.setStudent_address(cursor.getString(4));
                 student.setStudent_department(cursor.getString(5));
-                student.setStudent_class(cursor.getString(6));
+                student.setStudent_semester(cursor.getString(6));
                 list.add(student);
             }while(cursor.moveToNext());
         }
@@ -270,7 +270,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 student.setStudent_mobilenumber(cursor.getString(3));
                 student.setStudent_address(cursor.getString(4));
                 student.setStudent_department(cursor.getString(5));
-                student.setStudent_class(cursor.getString(6));
+                student.setStudent_semester(cursor.getString(6));
 
             }while(cursor.moveToNext());
         }

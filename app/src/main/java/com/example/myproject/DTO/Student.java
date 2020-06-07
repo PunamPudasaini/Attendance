@@ -7,7 +7,7 @@ public class Student {
     private String student_mobilenumber;
     private String student_address;
     private String student_department;
-    private String student_class;
+    private String student_semester;
 
     public int getStudent_id() {
         return student_id;
@@ -57,11 +57,11 @@ public class Student {
         this.student_department = student_department;
     }
 
-    public String getStudent_class() {
-        return student_class;
+    public String getStudent_semester() {
+        return student_semester;
     }
 
-    public void setStudent_class(String student_class) {
-        this.student_class = student_class;
+    public void setStudent_semester(String student_semester) {
+        this.student_semester = student_semester;
     }
 }

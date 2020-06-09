@@ -25,7 +25,7 @@ public class ViewStudentByBranchYear extends AppCompatActivity {
     String branch;
     String year;
 
-    DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    DatabaseHelper databaseHelper = new DatabaseHelper(ViewStudentByBranchYear.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class ViewStudentByBranchYear extends AppCompatActivity {
 
         for(Student student : students)
         {
-            String users = student.getStudent_firstname()+","+student.getStudent_lastname();
+            String users = "FirstName: " +student.getStudent_firstname()+"\nLastName: "+student.getStudent_lastname();
 
             studentList.add(users);
             Log.d("users: ", users);
@@ -58,7 +58,7 @@ public class ViewStudentByBranchYear extends AppCompatActivity {
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewStudentByBranchYear.this);
 
-                alertDialogBuilder.setTitle(getTitle()+"decision");
+                alertDialogBuilder.setTitle("Delete Student");
                 alertDialogBuilder.setMessage("Are you sure?");
 
                 alertDialogBuilder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
@@ -73,7 +73,7 @@ public class ViewStudentByBranchYear extends AppCompatActivity {
 
                         for(Student student : students)
                         {
-                            String users = " FirstName: " + student.getStudent_firstname()+"  \nLastname:"+student.getStudent_lastname();
+                            String users = " FirstName: " + student.getStudent_firstname()+"  \nLastName: " + student.getStudent_lastname();
                             studentList.add(users);
                             Log.d("users: ", users);
 

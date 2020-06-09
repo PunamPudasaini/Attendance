@@ -18,14 +18,19 @@ import com.example.myproject.DTO.Student;
 import com.example.myproject.Database.DatabaseHelper;
 import com.example.myproject.R;
 
+import java.util.ArrayList;
+
 public class AddStudent extends AppCompatActivity {
     EditText firstname,lastname,contact,address;
     Spinner department,Semester;
     Button submitbtn;
 
-   public String branch,semester;
+    String branchSelected, semesterSelected;
+
     private String[] branchString = new String[] { "BIT","BCS"};
     private String[] semesterString = new String[] {"1st","2nd","3rd","4th","5th","6th"};
+
+    DatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +44,17 @@ public class AddStudent extends AppCompatActivity {
         Semester = findViewById(R.id.spinnersemester);
         submitbtn = findViewById(R.id.RegisterButton);
 
+        // initialize database here
+        dbHelper = new DatabaseHelper(AddStudent.this);
 
         department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                Toast.makeText(AddStudent.this, "Selected Item "+branch, Toast.LENGTH_SHORT).show();
+                branchSelected = parent.getItemAtPosition(position).toString();
+               // Toast.makeText(AddStudent.this, "Selected Item "+parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+                System.out.println("branch/department selected = "+parent.getItemAtPosition(position).toString());
             }
 
             @Override
@@ -59,15 +68,16 @@ public class AddStudent extends AppCompatActivity {
                 .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         department.setAdapter(adapter_branch);
 
-
-
         //spinner 2
 
        Semester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               // to get the selected value from spinner we shoud use : parent.getItemAtPosition(position).toString()
                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-               Toast.makeText(AddStudent.this, "Selected Item "+semester, Toast.LENGTH_SHORT).show();
+               semesterSelected = parent.getItemAtPosition(position).toString();
+               //Toast.makeText(AddStudent.this, "Selected Item "+parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+               System.out.println("Semester selected = "+parent.getItemAtPosition(position).toString());
            }
 
            @Override
@@ -93,8 +103,10 @@ public class AddStudent extends AppCompatActivity {
             String LastName = lastname.getText().toString();
             String Contact = contact.getText().toString();
             String Address = address.getText().toString();
-            branch = department.getSelectedItem().toString();
-            semester = Semester.getSelectedItem().toString();
+            //branchSelected = department.getSelectedItem().toString();
+            //semesterSelected = Semester.getSelectedItem().toString();
+
+        System.out.println("Selected spinners in AddStudent method = "+branchSelected +" and sem = "+semesterSelected);
 
             if (TextUtils.isEmpty(FirstName)) {
                 firstname.setError("please enter firstname");
@@ -115,13 +127,15 @@ public class AddStudent extends AppCompatActivity {
                 student.setStudent_lastname(LastName);
                 student.setStudent_mobilenumber(Contact);
                 student.setStudent_address(Address);
-                student.setStudent_department(branch);
-                student.setStudent_semester(semester);
-                DatabaseHelper databaseHelper = new DatabaseHelper(AddStudent.this);
-                databaseHelper.StudentAdd(student);
+                student.setStudent_department(branchSelected);
+                student.setStudent_semester(semesterSelected);
+
+                System.out.println("Student complete data = "+student);
+                dbHelper.StudentAdd(student);
                 startActivity(new Intent(AddStudent.this, HomeActivity.class));
-                Toast.makeText(AddStudent.this, "Student Added Successfully" +student, Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddStudent.this, "Student Added Successfully", Toast.LENGTH_SHORT).show();
 
             }
         }
+
         }

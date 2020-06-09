@@ -9,17 +9,17 @@
             android:icon="@mipmap/home"
             android:id="@+id/home"/>
 
-        <item android:title="Courses"
+       <!-- <item android:title="Courses"
             android:icon="@mipmap/course"
-            android:id="@+id/courses"/>
+            android:id="@+id/courses"/>-->
 
-        <item android:title="View Subject"
+        <!--<item android:title="View Subject"
             android:icon="@mipmap/subjectadd"
-            android:id="@+id/viewSubject"/>
+            android:id="@+id/viewSubject"/>-->
 
-        <item android:title="View Student"
+       <!-- <item android:title="View Student"
             android:icon="@mipmap/viewstudent"
-            android:id="@+id/viewstudent"/>
+            android:id="@+id/viewstudent"/>-->
 
         <item android:title="Take Attendance"
             android:icon="@mipmap/takeattendance"

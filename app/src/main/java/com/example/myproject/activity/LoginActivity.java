@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (facultyBean != null) {
                         Intent intent = new Intent(LoginActivity.this, StudentHome.class);
                         startActivity(intent);
-                        ((ApplicationContext) LoginActivity.this.getApplicationContext()).setFacultyBean(facultyBean);
+                        ((ApplicationContext) LoginActivity.this.getApplicationContext()).setRegisteredStudent(facultyBean);
                         Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();

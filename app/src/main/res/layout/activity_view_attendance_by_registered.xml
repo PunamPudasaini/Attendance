@@ -6,18 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#D6D9ED"
-    tools:context=".activity.TotalAttendance">
+    tools:context=".studenthome.ViewAttendanceByRegisteredActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content"
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#694AA1"
-        app:title="Total Attendance"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        app:titleTextColor="#FFF"
+        app:title="Student List" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listview"
-        />
-
+        android:id="@+id/listview"/>
 </LinearLayout>

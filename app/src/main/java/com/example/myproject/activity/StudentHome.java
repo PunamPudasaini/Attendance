@@ -46,18 +46,18 @@ public class StudentHome extends AppCompatActivity implements NavigationView.OnN
         line4 = findViewById(R.id.line4);
         line5 = findViewById(R.id.line5);
         line6 = findViewById(R.id.line6);
-        line1.setOnClickListener(new View.OnClickListener() {
+     /*   line1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentHome.this,StudentViewCourse.class));
             }
-        });
-        line2.setOnClickListener(new View.OnClickListener() {
+        });*/
+       /* line2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentHome.this,Student_ViewStudent.class));
             }
-        });
+        });*/
         line3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,12 +76,12 @@ public class StudentHome extends AppCompatActivity implements NavigationView.OnN
                 startActivity(new Intent(StudentHome.this,StudentTotalAttendance.class));
             }
         });
-        line6.setOnClickListener(new View.OnClickListener() {
+       /* line6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentHome.this, SubjectList.class));
             }
-        });
+        });*/
     }
 
     private void setUpToolbar() {
@@ -104,20 +104,20 @@ public class StudentHome extends AppCompatActivity implements NavigationView.OnN
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.courses:
+       /* case R.id.courses:
         startActivity(new Intent(StudentHome.this, StudentViewCourse.class));
-        break;
+        break;*/
 
         case R.id.home:
         startActivity(new Intent(StudentHome.this,StudentHome.class));
         break;
-        case R.id.viewSubject:
+        /*case R.id.viewSubject:
             startActivity(new Intent(StudentHome.this,SubjectList.class));
             break;
 
         case R.id.viewstudent:
         startActivity(new Intent(StudentHome.this, Student_ViewStudent.class));
-        break;
+        break;*/
 
         case R.id.takeattendance:
         startActivity(new Intent(StudentHome.this, StudentTakeAttendance.class));

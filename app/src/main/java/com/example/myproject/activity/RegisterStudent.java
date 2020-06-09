@@ -69,7 +69,7 @@ public class RegisterStudent extends AppCompatActivity {
                     databaseHelper.RegisteredStudent(registeredStudent);
                     Intent intent =new Intent(RegisterStudent.this,ViewRegisteredStudent.class);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "Faculty added successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Register successfully", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -2,44 +2,43 @@ package com.example.myproject.context;
 
 import android.app.Application;
 import com.example.myproject.DTO.Attendance;
-import com.example.myproject.DTO.AttendanceSessionBean;
+import com.example.myproject.DTO.AttendanceSession;
 import com.example.myproject.DTO.RegisteredStudent;
 import com.example.myproject.DTO.Student;
-import com.example.myproject.activity.RegisterStudent;
 
 import java.util.ArrayList;
 
 public class ApplicationContext extends Application {
-	private RegisteredStudent facultyBean;
-	private AttendanceSessionBean attendanceSessionBean;
-	private ArrayList<Student> studentBeanList;
-	private ArrayList<Attendance> attendanceBeanList;
+	private RegisteredStudent registeredStudent;
+	private AttendanceSession attendanceSessionBean;
+	private ArrayList<Student> studentlist;
+	private ArrayList<Attendance> attendancelist;
 
-	public RegisteredStudent getFacultyBean() {
-		return facultyBean;
+	public RegisteredStudent getRegisteredStudent() {
+		return registeredStudent;
 	}
 
-	public void setFacultyBean(RegisteredStudent facultyBean) {
-		this.facultyBean = facultyBean;
+	public void setRegisteredStudent(RegisteredStudent registeredStudent) {
+		this.registeredStudent = registeredStudent;
 	}
 
-	public AttendanceSessionBean getAttendanceSessionBean() {
+	public AttendanceSession getAttendanceSessionBean() {
 		return attendanceSessionBean;
 	}
-	public void setAttendanceSessionBean(AttendanceSessionBean attendanceSessionBean) {
+	public void setAttendanceSessionBean(AttendanceSession attendanceSessionBean) {
 		this.attendanceSessionBean = attendanceSessionBean;
 	}
-	public ArrayList<Student> getStudentBeanList() {
-		return studentBeanList;
+	public ArrayList<Student> getStudentlist() {
+		return studentlist;
 	}
-	public void setStudentBeanList(ArrayList<Student> studentBeanList) {
-		this.studentBeanList = studentBeanList;
+	public void setStudentlist(ArrayList<Student> studentlist) {
+		this.studentlist = studentlist;
 	}
-	public ArrayList<Attendance> getAttendanceBeanList() {
-		return attendanceBeanList;
+	public ArrayList<Attendance> getAttendancelist() {
+		return attendancelist;
 	}
-	public void setAttendanceBeanList(ArrayList<Attendance> attendanceBeanList) {
-		this.attendanceBeanList = attendanceBeanList;
+	public void setAttendanceBeanList(ArrayList<Attendance> attendancelist) {
+		this.attendancelist = attendancelist;
 	}
 	
 	

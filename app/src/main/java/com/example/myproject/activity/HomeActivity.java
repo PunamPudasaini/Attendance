@@ -31,21 +31,21 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationview);
         navigationView.setNavigationItemSelectedListener(this);
         setUpToolbar();
-        line1 = findViewById(R.id.line1);
+        //line1 = findViewById(R.id.line1);
         line2 = findViewById(R.id.line2);
         line3 = findViewById(R.id.line3);
-        line4 = findViewById(R.id.line4);
+        //line4 = findViewById(R.id.line4);
         line5 = findViewById(R.id.line5);
         line6 = findViewById(R.id.line6);
         line7 = findViewById(R.id.line7);
         line8 = findViewById(R.id.line8);
 
-        line1.setOnClickListener(new View.OnClickListener() {
+       /* line1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                startActivity( new Intent(HomeActivity.this,CourseActivity.class));
             }
-        });
+        });*/
         line2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,12 +58,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                startActivity(new Intent(HomeActivity.this,ViewStudent.class));
             }
         });
-        line4.setOnClickListener(new View.OnClickListener() {
+      /*  line4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this,TakeAttendance.class));
             }
-        });
+        });*/
         line5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,18 +112,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.courses:
+           /* case R.id.courses:
                 startActivity(new Intent(HomeActivity.this,CourseActivity.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoursesFragment()).commit();
-                break;
+                break;*/
             case R.id.home:
                 startActivity(new Intent(HomeActivity.this,HomeActivity.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoursesFragment()).commit();
                 break;
-            case R.id.addSubject:
+           /* case R.id.addSubject:
                 startActivity(new Intent(HomeActivity.this,Subject.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddSubject()).commit();
-                break;
+                break;*/
             case R.id.addstudent:
                 startActivity(new Intent(HomeActivity.this,AddStudent.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddSubject()).commit();
@@ -132,10 +132,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(HomeActivity.this,ViewStudent.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ViewStudent()).commit();
                 break;
-            case R.id.takeattendance:
+           /* case R.id.takeattendance:
                 startActivity(new Intent(HomeActivity.this,TakeAttendance.class));
                 //startActivity(new Intent(HomeActivity.this,Take_Attendance.class));
-                break;
+                break;*/
             case R.id.viewattendance:
                 startActivity(new Intent(HomeActivity.this,ViewStudent.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TotalAttendancePerStudent()).commit();

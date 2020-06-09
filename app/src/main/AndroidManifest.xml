@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AddStudent"></activity>
+        <activity android:name=".activity.ViewAttendanceByRegistered"></activity>
+        <activity android:name=".studenthome.AddAttendance" />
+        <activity android:name=".studenthome.ViewAttendanceByRegisteredActivity" />
+        <activity android:name=".activity.AddStudent" />
         <activity android:name=".studenthome.SubjectList" />
         <activity android:name=".studenthome.StudentTotalAttendance" />
         <activity android:name=".studenthome.StudentViewAttendance" />

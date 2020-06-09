@@ -14,5 +14,102 @@
         android:background="#694AA1"
         app:title="View Attendance"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Department"
+            android:textSize="15sp"
+            android:textColor="#000"/>
+        <Spinner
+            android:id="@+id/spinnerdepartment"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Semester"
+            android:textSize="15sp"
+            android:textColor="#000"/>
+        <Spinner
+            android:id="@+id/spinnersemester"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Subject"
+            android:textSize="15sp"
+            android:textColor="#000"/>
+        <Spinner
+            android:id="@+id/spinnersubject"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/dateedittext"
+                android:layout_width="245dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext"
+                android:hint="choose date"
+                android:layout_gravity="center"
+                android:padding="10dp"></EditText>
+
+            &lt;!&ndash;<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginLeft="50dp"
+                android:textStyle="bold"/>&ndash;&gt;
+            &lt;!&ndash;  <ImageView
+                  android:layout_width="65dp"
+                  android:layout_height="60dp"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginLeft="20dp"
+                  android:src="@mipmap/calender" />&ndash;&gt;
+            <Button
+                android:id="@+id/datebtn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Date"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"
+                android:background="#5A3195"
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#5A3195"
+            android:text="Submit"
+            android:textColor="#FFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:textSize="15sp"/>
+
+    </LinearLayout>-->
 
 </LinearLayout>

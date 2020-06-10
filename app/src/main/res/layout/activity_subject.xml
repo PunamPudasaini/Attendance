@@ -14,5 +14,58 @@
         android:background="#694AA1"
         app:title="Courses"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject Code"
+            android:textColor="#000"
+            android:textSize="15sp"
+            />
+        <EditText
+            android:id="@+id/subjectcode"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext"
+            android:layout_marginTop="5dp"
+            android:hint="subject code"
+            android:textSize="15sp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject Name"
+            android:textColor="#000"
+            android:textSize="15sp"
+            />
+        <EditText
+            android:id="@+id/subjectname"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext"
+            android:layout_marginTop="5dp"
+            android:hint="Subject Name"
+            android:textSize="15sp"/>
+        <Button
+            android:id="@+id/addsubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textSize="15sp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:background="#6032A1"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
 
 </LinearLayout>

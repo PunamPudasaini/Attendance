@@ -10,8 +10,10 @@ import androidx.annotation.Nullable;
 
 import com.example.myproject.DTO.Attendance;
 import com.example.myproject.DTO.AttendanceSession;
+import com.example.myproject.DTO.Course;
 import com.example.myproject.DTO.RegisteredStudent;
 import com.example.myproject.DTO.Student;
+import com.example.myproject.DTO.Subject;
 
 import java.util.ArrayList;
 
@@ -21,13 +23,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     static String name = "Attendance";
 
     //Database verision
-    static int version = 4;
+    static int version = 5;
 
     //Database Table Name
     private static final String REGISTERED_STUDENT_TABLE = "registered_student_table";
     private static final String STUDENT_INFO_TABLE = "student_table";
     private static final String ATTENDANCE_SESSION_TABLE = "attendance_session_table";
     private static final String ATTENDANCE_TABLE = "attendance_table";
+    private static final String COURSE_TABLE = "course_table";
+    private static final String SUBJECT_TABLE = "subject_table";
+
 
 
     //Coloumn Name
@@ -58,6 +63,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_SESSION_ID = "attendance_session_id";
     private static final String KEY_ATTENDANCE_STUDENT_ID = "attendance_student_id";
     private static final String KEY_ATTENDANCE_STATUS = "attendance_status";
+
+    private static final String KEY_COURSE_ID = "course_id";
+    private static final String KEY_COURSE_CODE = "course_code";
+    private static final String KEY_COURSE_NAME = "course_name";
+
+    private static final String KEY_SUBJECT_ID = "subject_id";
+    private static final String KEY_SUBJECT_CODE = "subject_code";
+    private static final String KEY_SUBJECT_NAME = "subject_name";
+
+
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -106,6 +121,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_ATTENDANCE_STATUS + " TEXT " + ")";
         Log.d("queryAttendance",queryAttendance );
 
+        String queryCourse = "CREATE TABLE " + COURSE_TABLE + " (" +
+                KEY_COURSE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_COURSE_CODE + " TEXT, " +
+                KEY_COURSE_NAME + " TEXT " + ")";
+
+        System.out.println("Course query = "+queryCourse);
+        Log.d("queryCourse", queryCourse);
+
+        String querySubject = "CREATE TABLE " + SUBJECT_TABLE + " (" +
+                KEY_SUBJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_SUBJECT_CODE + " TEXT, " +
+                KEY_SUBJECT_NAME + " TEXT " + ")";
+
+        System.out.println("Subject query = "+querySubject);
+        Log.d("querySubject", querySubject);
+
+
+
 
         try {
             db.execSQL(queryRegistered);
@@ -113,6 +146,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             System.out.println("query executed");
             db.execSQL(queryAttendanceSession);
             db.execSQL(queryAttendance);
+            db.execSQL(queryCourse);
+            db.execSQL(querySubject);
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("Exception", e.getMessage());
@@ -125,6 +160,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " +REGISTERED_STUDENT_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " +ATTENDANCE_SESSION_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " +ATTENDANCE_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " +COURSE_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " +SUBJECT_TABLE);
+
         onCreate(db);
     }
     //CRUD
@@ -461,6 +499,82 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return attendanceArrayList;
     }
+
+    //COURSE CRUD
+    public void AddCourse(Course course) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String query = "INSERT INTO course_table (course_code,course_name) values ('" +
+                course.getCourse_code() + "', '" +
+                course.getCourse_name() + "')";
+        Log.d("query", query);
+        db.execSQL(query);
+        db.close();
+    }
+
+    public ArrayList<Course> getAllCourse() {
+
+        Log.d("in get all", "in get all");
+        ArrayList<Course> list = new ArrayList<Course>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM course_table";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Course course = new Course();
+                course.setCourse_id(Integer.parseInt(cursor.getString(0)));
+                course.setCourse_code(cursor.getString(1));
+                course.setCourse_name(cursor.getString(2));
+
+                list.add(course);
+
+            } while (cursor.moveToNext());
+        }
+        return list;
+    }
+
+
+    //SUBJECT CRUD
+
+    public void AddSubject(Subject subject) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String query = "INSERT INTO subject_table (subject_code,subject_name) values ('" +
+                subject.getSubject_code() + "', '" +
+                subject.getSubject_name() + "')";
+        Log.d("query", query);
+        db.execSQL(query);
+        db.close();
+    }
+
+    public ArrayList<Subject> getAllSubject() {
+
+        Log.d("in get all", "in get all");
+        ArrayList<Subject> list = new ArrayList<Subject>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM subject_table";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Subject subject = new Subject();
+                subject.setSubject_id(Integer.parseInt(cursor.getString(0)));
+                subject.setSubject_code(cursor.getString(1));
+                subject.setSubject_name(cursor.getString(2));
+
+                list.add(subject);
+
+            } while (cursor.moveToNext());
+        }
+        return list;
+    }
+
+
+
+
 }
 
 

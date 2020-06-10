@@ -15,4 +15,58 @@
             app:title="Courses"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+                android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:text="Course code"
+                android:textColor="#000"
+                android:textSize="15sp"
+               />
+                <EditText
+                    android:padding="7dp"
+                    android:id="@+id/coursecode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                        android:background="@drawable/edittext"
+                        android:layout_marginTop="5dp"
+                        android:hint="course code"
+                        android:textSize="15sp"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course Name"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+                <EditText
+                    android:padding="7dp"
+                    android:id="@+id/coursename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext"
+                    android:layout_marginTop="5dp"
+                    android:hint="Course Name"
+                    android:textSize="15sp"/>
+                <Button
+                    android:id="@+id/addcourse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                        android:text="Add"
+                        android:textSize="15sp"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:background="#6032A1"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+
 </LinearLayout>

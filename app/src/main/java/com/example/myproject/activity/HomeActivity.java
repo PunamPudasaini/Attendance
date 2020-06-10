@@ -112,18 +112,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-           /* case R.id.courses:
+            case R.id.courses:
                 startActivity(new Intent(HomeActivity.this,CourseActivity.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoursesFragment()).commit();
-                break;*/
+                break;
             case R.id.home:
                 startActivity(new Intent(HomeActivity.this,HomeActivity.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoursesFragment()).commit();
                 break;
-           /* case R.id.addSubject:
+            case R.id.addSubject:
                 startActivity(new Intent(HomeActivity.this,Subject.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddSubject()).commit();
-                break;*/
+                break;
             case R.id.addstudent:
                 startActivity(new Intent(HomeActivity.this,AddStudent.class));
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddSubject()).commit();

@@ -52,9 +52,10 @@ public class AddStudent extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                branchSelected = parent.getItemAtPosition(position).toString();
+            /*    branchSelected = parent.getItemAtPosition(position).toString();
                // Toast.makeText(AddStudent.this, "Selected Item "+parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
-                System.out.println("branch/department selected = "+parent.getItemAtPosition(position).toString());
+                System.out.println("branch/department selected = "+parent.getItemAtPosition(position).toString());*/
+
             }
 
             @Override

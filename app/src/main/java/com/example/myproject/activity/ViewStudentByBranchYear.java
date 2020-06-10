@@ -42,7 +42,7 @@ public class ViewStudentByBranchYear extends AppCompatActivity {
 
         for(Student student : students)
         {
-            String users = "FirstName: " +student.getStudent_firstname()+"\nLastName: "+student.getStudent_lastname();
+            String users = " FirstName: " +student.getStudent_firstname()+" \n LastName: "+student.getStudent_lastname();
 
             studentList.add(users);
             Log.d("users: ", users);

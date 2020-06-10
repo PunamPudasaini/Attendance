@@ -36,7 +36,8 @@ public class ViewRegisteredStudent extends AppCompatActivity {
 
         for(RegisteredStudent registeredStudent : registeredStudents)
         {
-            String users = " FirstName: " + registeredStudent.getRegistered_firstname()+"\nLastname:"+registeredStudent.getRegistered_lastname();
+            String users = " FirstName: " + registeredStudent.getRegistered_firstname()+" \n Lastname: "+registeredStudent.getRegistered_lastname() +" \n LCID: " +registeredStudent.getRegistered_lcid()
+                    +"\n Password: " +registeredStudent.getRegistered_password();
 
             registeredList.add(users);
             Log.d("users: ", users);

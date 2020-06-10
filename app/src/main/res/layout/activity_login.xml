@@ -37,7 +37,7 @@
 
     <EditText
         android:textColorHint="#000"
-        android:hint="Email"
+        android:hint="LCID"
         android:id="@+id/email"
         android:layout_width="330dp"
         android:layout_height="50dp"

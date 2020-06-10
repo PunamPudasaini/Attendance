@@ -29,6 +29,8 @@
             android:textSize="15sp"
             />
         <EditText
+            android:inputType="text"
+            android:padding="10dp"
             android:id="@+id/firstname"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
@@ -44,6 +46,8 @@
             android:textSize="15sp"
             />
         <EditText
+            android:inputType="text"
+            android:padding="10dp"
             android:id="@+id/lastname"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
@@ -60,6 +64,8 @@
             android:textSize="15sp"
             />
         <EditText
+            android:inputType="text"
+            android:padding="10dp"
             android:id="@+id/address"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
@@ -75,6 +81,8 @@
             android:textSize="15sp"
             />
         <EditText
+            android:inputType="text"
+            android:padding="10dp"
             android:id="@+id/lcid"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
@@ -82,6 +90,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edittext"/>
         <TextView
+
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,6 +99,8 @@
             android:textSize="15sp"
             />
         <EditText
+            android:inputType="textPassword"
+            android:padding="10dp"
             android:id="@+id/password"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"

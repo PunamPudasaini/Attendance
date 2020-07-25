@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     static String name = "Attendance";
 
     //Database verision
-    static int version = 5;
+    static int version = 6;
 
     //Database Table Name
     private static final String REGISTERED_STUDENT_TABLE = "registered_student_table";

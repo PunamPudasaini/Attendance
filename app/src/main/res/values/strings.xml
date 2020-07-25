@@ -4,6 +4,7 @@
     <string name="close_navigation_drawer">close navigation drawer</string>
 
     <array name="userrole">
+        <item>Choose User Role</item>
         <item>Admin</item>
         <item>Student</item>
     </array>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,18 +32,18 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.i("lifecycle","onCreate");
         login = findViewById(R.id.login);
         lcid = findViewById(R.id.email);
         password = findViewById(R.id.password);
         spinnerloginas = findViewById(R.id.spinnerloginas);
-
 
         spinnerloginas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view,
                                        int arg2, long arg3) {
                 // TODO Auto-generated method stub
-                ((TextView) arg0.getChildAt(0)).setTextColor(Color.WHITE);
+                ((TextView) arg0.getChildAt(0)).setTextColor(Color.BLACK);
                 userrole = (String) spinnerloginas.getSelectedItem();
 
             }
@@ -71,16 +72,19 @@ public class LoginActivity extends AppCompatActivity {
                     String pass_word = password.getText().toString();
 
                     if (TextUtils.isEmpty(Lcid)) {
-                        lcid.setError("Invalid User Name");
+                        lcid.setError("please enter email");
+                      
                     } else if (TextUtils.isEmpty(pass_word)) {
-                        password.setError("enter password");
-                    } else {
+                        password.setError("please enter password");
+
+                    }
+                    else {
                         if (Lcid.equals("admin") & pass_word.equals("admin")) {
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Login failed \n please recheck email & password", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } else {
@@ -88,9 +92,9 @@ public class LoginActivity extends AppCompatActivity {
                     String Password = password.getText().toString();
 
                     if (TextUtils.isEmpty(Lcid)) {
-                        lcid.setError("Invalid User Name");
+                        lcid.setError("please enter LCID");
                     } else if (TextUtils.isEmpty(Password)) {
-                        password.setError("enter password");
+                        password.setError("please enter password");
                     }
                     DatabaseHelper databaseHelper = new DatabaseHelper(LoginActivity.this);
                     RegisteredStudent facultyBean = databaseHelper.validateRegisteredStudent(Lcid, Password);
@@ -101,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                         ((ApplicationContext) LoginActivity.this.getApplicationContext()).setRegisteredStudent(facultyBean);
                         Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Login failed \n Recheck LCID and password", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -109,6 +113,40 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("lifecycle","onStop");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("lifecycle","onStart");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();  Log.i("lifecycle","onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("lifecycle","onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("lifecycle","onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("lifecycle","onDestroy");
     }
 
     }

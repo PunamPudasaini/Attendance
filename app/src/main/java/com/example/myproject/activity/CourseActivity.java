@@ -1,6 +1,7 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,16 @@ public class CourseActivity extends AppCompatActivity {
         coursecode = findViewById(R.id.coursecode);
         coursename = findViewById(R.id.coursename);
         addcourse = findViewById(R.id.addcourse);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         //DatabaseHelper databaseHelper = new DatabaseHelper(CourseActivity.this);
 

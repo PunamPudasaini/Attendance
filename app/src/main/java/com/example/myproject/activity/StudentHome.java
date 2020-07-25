@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.myproject.DTO.Student;
 import com.example.myproject.R;
@@ -132,6 +133,7 @@ public class StudentHome extends AppCompatActivity implements NavigationView.OnN
 
         case R.id.logout:
         Intent intent = new Intent(StudentHome.this, LoginActivity.class);
+            Toast.makeText(this, "Student Logout Successfully", Toast.LENGTH_SHORT).show();
         startActivity(intent);
         break;
     }

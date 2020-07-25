@@ -6,7 +6,7 @@
         <!-- <item android:title="Add Courses"android:id="@+id/addcourses"android:icon="@drawable/ic_add_circle_black_24dp"/>-->
 
         <item android:title="Home"
-            android:icon="@mipmap/home"
+           android:icon="@drawable/ic_home_black_24dp"
             android:id="@+id/home"/>
 
        <!-- <item android:title="Courses"
@@ -22,16 +22,16 @@
             android:id="@+id/viewstudent"/>-->
 
         <item android:title="Take Attendance"
-            android:icon="@mipmap/takeattendance"
+            android:icon="@drawable/ic_takeattd_turned_in_black_24dp"
             android:id="@+id/takeattendance"/>
 
         <item android:title="View Attendance"
-            android:icon="@mipmap/takeatt"
+            android:icon="@drawable/ic_viewattd_ind_black_24dp"
             android:id="@+id/viewattendance"/>
 
 
         <item android:title="Logout"
-            android:icon="@mipmap/logout"
+            android:icon="@drawable/ic_logs_new_black_24dp"
             android:id="@+id/logout"/>
 
     </group>

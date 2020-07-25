@@ -1,6 +1,7 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -49,6 +50,16 @@ public class ViewAttendance extends AppCompatActivity {
         spinnersemester = findViewById(R.id.spinnersemester);
         spinnersubject = findViewById(R.id.spinnersubject);
         submit = findViewById(R.id.submitButton);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         databaseHelper = new DatabaseHelper(ViewAttendance.this);
         //department spinner

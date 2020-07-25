@@ -1,9 +1,11 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -27,8 +29,18 @@ public class ViewAttendanceByRegistered extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_attendance_by_registered2);
         listView = findViewById(R.id.listview);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         final ArrayList<String> attendanceList = new ArrayList<String>();
-        attendanceList.add("Id   | StudentName   |  Status ");
+        attendanceList.add("Id           |        StudentName            |      Status ");
 
         attendanceArrayList = ((ApplicationContext) ViewAttendanceByRegistered.this.getApplicationContext()).getAttendancelist();
 
@@ -39,7 +51,7 @@ public class ViewAttendanceByRegistered extends AppCompatActivity {
             {
                 DatabaseHelper databaseHelper = new DatabaseHelper(ViewAttendanceByRegistered.this);
                 Student student =databaseHelper.getStudentById(attendance.getAttendance_student_id());
-                users = attendance.getAttendance_student_id()+".     "+student.getStudent_firstname()+"  "+student.getStudent_lastname()+"                  "+attendance.getAttendance_status();
+                users = attendance.getAttendance_student_id()+".         "+student.getStudent_firstname()+" "+student.getStudent_lastname()+"                  "+attendance.getAttendance_status();
             }
             else
             {

@@ -1,9 +1,11 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -25,6 +27,16 @@ public class TotalAttendance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total_attendance);
         listView = findViewById(R.id.listview);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         DatabaseHelper databaseHelper = new DatabaseHelper(TotalAttendance.this);
         ArrayList<Attendance> attendanceArrayList=databaseHelper.getAllAttendanceByStudent();
@@ -38,7 +50,7 @@ public class TotalAttendance extends AppCompatActivity {
         {
             String users = "";
             Student student =databaseHelper.getStudentById(attendance.getAttendance_student_id());
-            users = attendance.getAttendance_student_id()+".     "+student.getStudent_firstname()+","+student.getStudent_lastname()+"                  "+attendance.getAttendance_session_id();
+            users = attendance.getAttendance_student_id()+".     "+student.getStudent_firstname()+" "+student.getStudent_lastname()+"                  "+attendance.getAttendance_session_id();
             attendanceList.add(users);
         }
         listAdapter = new ArrayAdapter<String>(this, R.layout.view_attendance_list_per_student, R.id.labelAttendancePerStudent, attendanceList);

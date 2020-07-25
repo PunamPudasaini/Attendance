@@ -1,9 +1,11 @@
 package com.example.myproject.studenthome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -25,10 +27,20 @@ public class ViewAttendanceByRegisteredActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_attendance_by_registered);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         listView = findViewById(R.id.listview);
         final ArrayList<String> attendanceList = new ArrayList<String>();
-        attendanceList.add("Id   | StudentName   |  Status ");
+        attendanceList.add("Id     |      StudentName   |     Status ");
 
         attendanceArrayList = ((ApplicationContext) ViewAttendanceByRegisteredActivity.this.getApplicationContext()).getAttendancelist();
 

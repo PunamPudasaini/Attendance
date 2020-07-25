@@ -1,6 +1,7 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -32,6 +33,16 @@ public class ViewStudent extends AppCompatActivity {
         spinnerbranch = findViewById(R.id.spinnerbranchView);
         spinneryear=findViewById(R.id.spinnersemesterView);
         submit = findViewById(R.id.submitButton);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         databaseHelper = new DatabaseHelper(ViewStudent.this);
 

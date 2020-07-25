@@ -1,12 +1,14 @@
 package com.example.myproject.studenthome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -49,6 +51,16 @@ public class StudentTakeAttendance extends AppCompatActivity {
         spinnersemester = findViewById(R.id.spinnersemester);
         spinnersubject = findViewById(R.id.spinnersubject);
         submit = findViewById(R.id.submitButton);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         databaseHelper = new DatabaseHelper(StudentTakeAttendance.this);
 
@@ -160,7 +172,6 @@ public class StudentTakeAttendance extends AppCompatActivity {
 
                 ArrayList<Student> studentArrayList=databaseHelper.getAllStudentByBranchYear(branch, year);
                 ((ApplicationContext)StudentTakeAttendance.this.getApplicationContext()).setStudentlist(studentArrayList);
-
 
                 Intent intent = new Intent(StudentTakeAttendance.this,AddAttendance.class);
                 intent.putExtra("sessionId", sessionId);

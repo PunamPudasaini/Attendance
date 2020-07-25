@@ -8,11 +8,11 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#694AA1"
-        app:titleTextColor="#FFF"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Take Attendance" />
     <LinearLayout
         android:layout_width="match_parent"

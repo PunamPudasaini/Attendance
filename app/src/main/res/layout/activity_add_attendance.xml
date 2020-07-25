@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#694AA1"
-        app:titleTextColor="#FFF"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Add Attendance" />
     <ListView
         android:layout_width="match_parent"

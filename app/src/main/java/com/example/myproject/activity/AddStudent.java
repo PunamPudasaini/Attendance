@@ -1,6 +1,8 @@
 package com.example.myproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import com.example.myproject.Database.DatabaseHelper;
 import com.example.myproject.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddStudent extends AppCompatActivity {
     EditText firstname,lastname,contact,address;
@@ -43,6 +46,16 @@ public class AddStudent extends AppCompatActivity {
         department = findViewById(R.id.spinnerdept);
         Semester = findViewById(R.id.spinnersemester);
         submitbtn = findViewById(R.id.RegisterButton);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         // initialize database here
         dbHelper = new DatabaseHelper(AddStudent.this);
@@ -68,6 +81,7 @@ public class AddStudent extends AppCompatActivity {
         adapter_branch
                 .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         department.setAdapter(adapter_branch);
+
 
         //spinner 2
 
